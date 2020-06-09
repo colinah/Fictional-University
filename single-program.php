@@ -23,9 +23,10 @@ get_header();
               </a>
               <span class="metabox__main"><?php the_title(); ?></span>
             </p>
-        </div>
+        </div class="generic-content">
         <?php the_content(); ?>
     </div>
+    Hellow
   </div>
 
 
