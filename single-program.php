@@ -26,6 +26,7 @@ get_header();
         </div class="generic-content">
         <?php the_content(); ?>
     </div>
+
     <?php 
         $today = date('Ymd');
           $pastEvents = new WP_Query(array(
@@ -71,6 +72,32 @@ get_header();
           </div>
             <?php }
           }
+
+          wp_reset_query();
+
+          $relatedProfessor = new WP_Query(array(
+            'posts_per_page' => -1,
+            'post_type' => 'professor',
+            'orderby' => 'title',
+            'order' => 'ASC',
+            'meta_query' => array(
+              array(
+                'key' => 'related_programs',
+                'compare' => 'LIKE',
+                'value' => '"' . get_the_ID() . '"'
+              ))
+          ));
+    
+          if($relatedProfessor){
+            echo '<hr class="section-break">';
+            echo '<h2 class="headline headline--medium">Professors</h2>';
+    
+            while($relatedProfessor->have_posts()) {
+              $relatedProfessor->the_post();?>
+                <li class=""><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+            <?php }
+          }
+          wp_reset_query();
         ?>
   </div>
 
