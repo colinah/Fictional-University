@@ -15,6 +15,7 @@ pageBanner(array(
     }
     echo paginate_links();
 ?>
+<p>See our past events <a href="<?php echo site_url('/past-events')?>">HERE</a>.</p>
 </div>
 
 <?php
