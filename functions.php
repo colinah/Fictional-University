@@ -1,5 +1,6 @@
 <?php
 function pageBanner($args = NULL){
+  wp_reset_query();
   //Setting up args for missing inputs
   if(!$args['title']) $args['title'] = get_the_title();
   if(!$args['subtitle']) $args['subtitle'] = get_field('page_banner_subtitle');
