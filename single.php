@@ -4,8 +4,6 @@ get_header();
     the_post(); 
     pageBanner();?>
 
-  <h1>Single</h1>
-
   <div class="container container--narrow page-section">
     
     <div class="generic-content">
