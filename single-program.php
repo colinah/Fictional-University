@@ -82,6 +82,17 @@ get_header();
             echo '</ul>';
           }
           wp_reset_query();
+          $relatedCampuses = get_field('related_campus');
+          if($relatedCampuses){
+            echo '<h2>' . get_the_title() . ' is Available At These Campuses:</h2>';
+            echo '<ul class="min-list link-list">';
+            foreach($relatedCampuses as $campus) {
+              ?>
+                <li><a href="<? echo get_the_permalink($campus); ?>"><?php echo get_the_title($campus); ?></a></li>
+              <?php
+            }
+            echo '</ul>';
+          }
         ?>
   </div>
 
